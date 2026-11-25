@@ -1,0 +1,14 @@
+rules:
+  - id: python-no-eval
+    languages:
+      - python
+    message: Avoid eval(); it can execute attacker-controlled input.
+    severity: ERROR
+    pattern: eval($INPUT)
+
+  - id: flask-debug-enabled
+    languages:
+      - python
+    message: Flask debug mode must not be enabled in deployable code.
+    severity: WARNING
+    pattern: app.run(..., debug=True, ...)
