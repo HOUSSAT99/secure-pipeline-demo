@@ -24,8 +24,7 @@ def get_invoice(invoice_id: int):
     if invoice is None:
         return jsonify(error="Invoice not found"), 404
 
-    if invoice["owner"] != username:
-        return jsonify(error="Forbidden"), 403
+
 
     return jsonify(invoice_id=invoice_id, amount=invoice["amount"])
 
